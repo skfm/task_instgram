@@ -1,0 +1,20 @@
+<h1>プロフィールの詳細</h1>
+
+<div id="contets_box">
+  <ul>
+    <div class="contet_box">
+      <li>
+        <dt><%= @user.name %>さんの投稿</dt>
+        <br>
+        <dd><%= @user.name %></dd>
+        <br>
+        <dd><%= @user.email %></dd>
+        <br>
+        <dd><%= image_tag(@user.image.url) if @user.image.url %></dd>
+        <br>
+      </li>
+    </div>
+  </ul>
+</div>
+
+<%= link_to 'プロフィールを編集する', edit_user_path(@user) %>

@@ -1,0 +1,16 @@
+<br>
+
+<div class="center">
+  <h1>投稿編集</h1>
+</div>
+
+<%= render 'form', picture: @user %>
+
+<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">
+  プロフィールを編集する
+</button>
+
+<div class="inner">
+  <%= link_to '戻る', user_path(@user.id) %>
+</div>
+
