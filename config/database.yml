@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  template: template0
+
+development:
+  <<: *default
+  database: task_instagram_development
+
+test:
+  <<: *default
+  database: task_instagram_test
+
+production:
+  <<: *default
+  database: task_instagram_production
+  username: task_instagram
+  password: <%= ENV['TASK_INSTAGRAM_DATABASE_PASSWORD'] %>
