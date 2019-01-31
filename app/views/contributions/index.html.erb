@@ -3,25 +3,26 @@
 <div id="contets_box">
   <ul>
     <% @contributions.each do |contribution| %>
-    <div class="contet_box">
-      <li>
-        <dt><%= contribution.user.name %>さんの投稿</dt>
-        <br>
-        <dd><%= contribution.content %></dd>
-        <br>
-        <dd><%= image_tag(contribution.picture.url) if contribution.picture.url %></dd>
-        <br>
-        <div class="btn-group">
-          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Action <span class="caret"></span>
-          </button>
-            <ul class="dropdown-menu">
-              <li><%= link_to '投稿内容を編集する', edit_contribution_path(contribution) if contribution.user_id == current_user.id %></li>
-              <li><%= link_to '投稿内容を削除する', contribution, method: :delete, data: { confirm: '本当に投稿を削除しますか？' } if contribution.user_id == current_user.id %></li>
-            </ul>
-        </div>
-      </li>
-    </div>
+      <div class="contet_box">
+        <li>
+          <dt><%= contribution.user.name %>さんの投稿</dt>
+          <br>
+          <dd><%= contribution.content %></dd>
+          <br>
+          <dd><%= image_tag(contribution.picture.url) if contribution.picture.url %></dd>
+          <br>
+          <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Action <span class="caret"></span>
+            </button>
+              <ul class="dropdown-menu">
+                <li><%= link_to '投稿内容の詳細確認をする', contribution_path(contribution.id) %></li>
+                <li><%= link_to '投稿内容を編集する', edit_contribution_path(contribution) if contribution.user_id == current_user.id %></li>
+                <li><%= link_to '投稿内容を削除する', contribution, method: :delete, data: { confirm: '本当に投稿を削除しますか？' } if contribution.user_id == current_user.id %></li>
+              </ul>
+          </div>
+        </li>
+      </div>
     <% end %>
   </ul>
 </div>
@@ -33,3 +34,8 @@
 <div class="inner">
   <%= link_to 'プロフィールを確認する', user_path(current_user.id) %>
 </div>
+
+<div class="inner">
+  <%= link_to 'お気に入りを確認する', favorites_path(current_user.id) %>
+</div>
+

@@ -1,0 +1,21 @@
+<br>
+
+<h1>お気に入り</h1>
+
+<div id="contets_box">
+  <ul>
+    <% @favorites.each do |favorite| %>
+      <div class="contet_box">
+        <li>
+          <dt><%= favorite.user.name %>さんの投稿</dt>
+          <br>
+          <dd><%= favorite.contribution.content %></dd>
+          <br>
+          <dd><%= image_tag(favorite.contribution.picture.url) if favorite.contribution.picture.url %></dd>
+          <br>
+          <%= link_to 'お気に入り解除する', favorite_path(id: favorite.id), method: :delete, class: 'btn btn-danger' %>
+        </li>
+      </div>
+    <% end %>
+  </ul>
+</div>

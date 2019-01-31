@@ -1,5 +1,5 @@
 class ContributionsController < ApplicationController
-  before_action :set_contribution, only: [:edit, :update, :destroy]
+  before_action :set_contribution, only: [:edit, :show, :update, :destroy]
 
   def index
     @contributions = Contribution.all.order(created_at: :desc)
@@ -11,6 +11,10 @@ class ContributionsController < ApplicationController
     else
       @contribution = Contribution.new
     end
+  end
+  
+  def show
+    @favorite = current_user.favorites.find_by(contribution_id: @contribution.id)
   end
   
   def edit
