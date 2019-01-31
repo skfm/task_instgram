@@ -19,12 +19,13 @@ class ContributionsController < ApplicationController
   def create
     @contribution = current_user.contributions.build(contribution_params)
     if @contribution.save
+      ContributionMailer.contribution_mail(@contribution).deliver
       redirect_to contributions_path, notice: '投稿が完了しました！'
     else
       render 'new' 
     end
   end
-
+  
   def update
     if @contribution.update(contribution_params)
       redirect_to contributions_path, notice: '投稿を編集しました！' 
