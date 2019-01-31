@@ -15,8 +15,7 @@
     <% end %>
     
     <% if logged_in? %>
-      <%= link_to "ホーム", user_path(current_user.id) , :class => 'nav' %> 
-      #pictures_path
+      <%= link_to "ホーム", contributions_path, :class => 'nav' %> 
       <%= link_to "ログアウト", session_path(current_user.id), method: :delete, :class => 'nav' %>
     <% else %>
       <%= link_to "新規登録", new_user_path, :class => 'nav' %>

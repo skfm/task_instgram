@@ -1,0 +1,25 @@
+<br>
+
+<div class="center">
+  <h1>以下の内容で、送信する。</h1>
+</div>
+
+<div class="contet_box">
+  <%= form_with(model: @contribution, url: contributions_path, local: true) do |form| %>
+    <p><%= @contribution.content %></p>
+    <br>
+    <%= form.hidden_field :content %>
+    <%= image_tag(@contribution.picture.url) if @contribution.picture? %>
+    <%= form.hidden_field :picture_cache %>
+    <br>
+    <br>
+    <%= form.submit  "登録する", :class => "btn btn-lg btn-primary btn-block btn-signin" %>
+  <% end %>
+  <br>
+  <br>
+  <%= form_with(model: @contribution, url: new_contribution_path, local: true, method: 'get') do |form| %>
+    <%= form.hidden_field :content %>
+    <%= form.hidden_field :image_cache %>
+    <%= form.submit "戻る", name: 'back', :class => "btn btn-lg btn-primary btn-block btn-signin" %>
+  <% end %>
+</div>

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :sessions
   root 'users#new'
   resources :users do
     collection do
@@ -7,4 +6,11 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :sessions
+  
+  resources :contributions do
+    collection do
+      post :confirm
+    end
+  end
 end
