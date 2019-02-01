@@ -1,14 +1,46 @@
 <br>
 
-<div class="center">
-  <h1>投稿編集</h1>
-</div>
+<%= form_with(model: @user, local: true, url: choose_new_or_edit) do |form| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2>内容に不備があります</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="center">
+    <h1>プロフィールの編集</h1>
+  </div>
 
-<%= render 'form', picture: @user %>
-
-<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">
-  プロフィールを編集する
-</button>
+  <div class="contet_box">
+    <div class="field">
+      <br>
+      <%= form.label :名前 %>
+      <%= form.text_field :name, :class => 'field' %>
+    </div>
+    <div class="field">
+      <br>
+      <%= form.label :メールアドレス %>
+      <%= form.text_field :email, :class => 'field' %>
+    </div>
+    <br>
+    <div class="field">
+      <%= form.label :プロフィール写真 %>
+      <%= image_tag(@user.image.url) if @user.image.url %>
+      <br>
+      <%= form.file_field :image %>
+      <%= form.hidden_field :image_cache %>
+    </div>
+    <br>
+    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">
+      編集を完了する
+    </button>
+  </div>
+<% end %>
 
 <div class="inner">
   <%= link_to '戻る', user_path(@user.id) %>

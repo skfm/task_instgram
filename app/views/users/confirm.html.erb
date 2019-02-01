@@ -6,13 +6,17 @@
 
 <div class="contet_box">
   <%= form_with(model: @user, url: users_path, local: true) do |form| %>
+    <h4>名前</h4>
     <p><%= @user.name %></p>
-    <p><%= @user.email %></p>
-    <br>
     <%= form.hidden_field :name %>
+    <br>
+    <h4>メールアドレス</h4>
+    <p><%= @user.email %></p>
     <%= form.hidden_field :email %>
+    <br>
     <%= form.hidden_field :password %>
     <%= form.hidden_field :password_confirmation %>
+    <h4>プロフィール写真</h4>
     <%= image_tag(@user.image.url) if @user.image? %>
     <%= form.hidden_field :image_cache %>
     <br>

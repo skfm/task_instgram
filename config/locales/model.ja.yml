@@ -1,17 +1,17 @@
 ja:
   activerecord:
     models:
-      blog: "ブログ"
       user: "ユーザー"
+      contribution: "投稿"
+      favorite: "お気に入り"
     attributes:
-      blog:
-        title: "タイトル"
-        content: "内容"
       user:
-        title: "タイトル"
         name: "名前"
         email: "メールアドレス"
-        current_password: "現在のパスワード"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
-        remember_me: "ログインを記憶"
+        image: "プロフィール画像"
+      contribution:
+        content: "投稿内容"
+        picture: "投稿写真"
+        

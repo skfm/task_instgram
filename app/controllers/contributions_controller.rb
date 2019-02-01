@@ -7,7 +7,7 @@ class ContributionsController < ApplicationController
 
   def new
     if params[:back]
-      @contribution = Contribution.new(conribution_params)
+      @contribution = Contribution.new(contribution_params)
     else
       @contribution = Contribution.new
     end

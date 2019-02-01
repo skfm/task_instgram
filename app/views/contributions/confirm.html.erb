@@ -6,9 +6,11 @@
 
 <div class="contet_box">
   <%= form_with(model: @contribution, url: contributions_path, local: true) do |form| %>
+    <h4>投稿内容</h4>
     <p><%= @contribution.content %></p>
-    <br>
     <%= form.hidden_field :content %>
+    <br>
+    <h4>投稿写真</h4>
     <%= image_tag(@contribution.picture.url) if @contribution.picture? %>
     <%= form.hidden_field :picture_cache %>
     <br>

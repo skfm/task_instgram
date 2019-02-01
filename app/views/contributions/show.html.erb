@@ -1,21 +1,24 @@
-  <div class="contet_box">
-    <div class="field">
-      <br>
-      <%= @contribution.content %>
-    </div>
-    <br>
-    <div class="field">
-      <%= image_tag(@contribution.picture.url) if @contribution.picture.url %>
-      <br>
-    </div>
-    <br>
-    <br>
+<div class="contet_box">
+  <div class="field">
+    <h4>投稿内容</h4>
+    <p><%= @contribution.content %></p>
   </div>
-  
+  <br>
+  <div class="field">
+    <h4>投稿写真</h4>
+    <p><%= image_tag(@contribution.picture.url) if @contribution.picture.url %></p>
+  </div>
+  <br>
+  <br>
   <% unless @contribution.user_id == current_user.id %>
-      <% if @favorite.present? %>
-        <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
-      <% else %>
-        <%= link_to 'お気に入りする', favorites_path(contribution_id: @contribution.id), method: :post, class: 'btn btn-primary' %>
-      <% end %>
+    <% if @favorite.present? %>
+      <%= link_to 'お気に入りを解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+    <% else %>
+      <%= link_to 'お気に入りする', favorites_path(contribution_id: @contribution.id), method: :post, class: 'btn btn-primary' %>
     <% end %>
+  <% end %>
+</div>
+  
+<div class="inner">
+    <a><%= link_to '戻る', contributions_path %></a>
+</div>  

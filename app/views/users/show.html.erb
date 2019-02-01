@@ -1,20 +1,32 @@
-<h1>プロフィールの詳細</h1>
+<br>
+
+<div class="center">
+  <h1>プロフィールの詳細</h1>
+</div>
 
 <div id="contets_box">
   <ul>
     <div class="contet_box">
-      <li>
-        <dt><%= @user.name %>さんの投稿</dt>
-        <br>
-        <dd><%= @user.name %></dd>
-        <br>
-        <dd><%= @user.email %></dd>
-        <br>
-        <dd><%= image_tag(@user.image.url) if @user.image.url %></dd>
-        <br>
+      <li id="profile">
+        <dl>
+          <dt>名前</dt>
+          <dd><%= @user.name %></dd>
+          <br>
+          <dt>メールアドレス</dt>
+          <dd><%= @user.email %></dd>
+        　<br>
+        　<dt>プロフィール写真</dt>
+        　<dd><%= image_tag(@user.image.url) if @user.image.url %></dd>
+        </dl>
       </li>
+      <br>
+      <button class="btn btn-lg btn-primary btn-block btn-signin">
+        <%= link_to 'プロフィールを編集する', edit_user_path(@user) %>
+      </button>
     </div>
   </ul>
 </div>
 
-<%= link_to 'プロフィールを編集する', edit_user_path(@user) %>
+<div class="inner">
+    <a><%= link_to '戻る', contributions_path %></a>
+</div>

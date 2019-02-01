@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   
   def new
     if params[:back]
-      @user = User.new(picture_params)
+      @user = User.new(user_params)
     else
       @user = User.new
     end
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-  
+   
   def confirm
     @user = User.new(user_params)
     render :new if @user.invalid?
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   private
   
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
   end
     
   def user_params
