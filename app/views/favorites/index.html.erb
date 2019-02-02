@@ -15,7 +15,7 @@
           <br>
           <dd><%= image_tag(favorite.contribution.picture.url) if favorite.contribution.picture.url %></dd>
           <br>
-          <%= link_to 'お気に入りを解除する', favorite_path(id: favorite.id), method: :delete, class: 'btn btn-danger' %>
+          <%= link_to 'お気に入りを解除する', favorite_path(id: favorite.id), method: :delete, class: "btn btn-danger" %>
         </li>
       </div>
     <% end %>

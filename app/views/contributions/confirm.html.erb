@@ -15,13 +15,13 @@
     <%= form.hidden_field :picture_cache %>
     <br>
     <br>
-    <%= form.submit  "投稿する", :class => "btn btn-lg btn-primary btn-block btn-signin" %>
+    <%= form.submit  "投稿する", class: "btn btn-lg btn-primary btn-block btn-signin" %>
   <% end %>
   <br>
   <br>
   <%= form_with(model: @contribution, url: new_contribution_path, local: true, method: 'get') do |form| %>
     <%= form.hidden_field :content %>
     <%= form.hidden_field :picture_cache %>
-    <%= form.submit "戻る", name: 'back', :class => "btn btn-lg btn-primary btn-block btn-signin" %>
+    <%= form.submit "戻る", name: 'back', class: "btn btn-lg btn-primary btn-block btn-signin" %>
   <% end %>
 </div>

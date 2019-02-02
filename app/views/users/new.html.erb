@@ -20,22 +20,22 @@
     <div class="field">
       <br>
       <%= form.label :名前 %>
-      <%= form.text_field :name, :class => 'field' %>
+      <%= form.text_field :name, class: "field" %>
     </div>
     <div class="field">
       <br>
       <%= form.label :メールアドレス %>
-      <%= form.text_field :email, :class => 'field' %>
+      <%= form.text_field :email, class: "field" %>
     </div>
     <div class="field">
       <br>
       <%= form.label :パスワード %>
-      <%= form.password_field :password, :class => 'field' %>
+      <%= form.password_field :password, class: "field" %>
     </div>
     <div class="field">
       <br>
       <%= form.label :パスワード（確認用） %>
-      <%= form.password_field :password_confirmation, :class => 'field' %>
+      <%= form.password_field :password_confirmation, class: "field" %>
     </div>
     <div class="field">
       <%= image_tag(@user.image.url) if @user.image.url %>

@@ -8,12 +8,12 @@
   <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
   
     <%= f.label :email %>
-    <%= f.email_field :email, :class => 'field'%>
+    <%= f.email_field :email, class: "field" %>
   
     <%= f.label :password %>
-    <%= f.password_field :password, :class => 'field' %>
+    <%= f.password_field :password, class: "field" %>
     <br>
     <br>
-    <%= f.submit "Log in", :class => "btn btn-lg btn-primary btn-block btn-signin" %>
+    <%= f.submit "Log in", class: "btn btn-lg btn-primary btn-block btn-signin" %>
   <% end %>
 </div>
